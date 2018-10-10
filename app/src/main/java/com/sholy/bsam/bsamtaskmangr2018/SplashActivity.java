@@ -18,7 +18,6 @@ public class SplashActivity extends AppCompatActivity {
         super.onRestart();
     }
 
-    
     public class MyThread extends Thread
     {
         @Override
