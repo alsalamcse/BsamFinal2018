@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class SignUpActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private FirebaseUser firebaseUser;
-    private EditText etFirstName,etLastName,etEmail1,etPassword1,etPhone;
+    private EditText etFirstName,etLastName,etEmail1,etPassword1,etPhone,etConfirmPassword;
     private Button btnSave;
 
 
@@ -30,6 +30,7 @@ public class SignUpActivity extends AppCompatActivity {
         etLastName = (EditText) findViewById(R.id.etLastName);
         etEmail1 = (EditText) findViewById(R.id.etEmail);
         etPassword1 = (EditText) findViewById(R.id.etPassword1);
+        etConfirmPassword = (EditText) findViewById(R.id.etConfirmPassword);
         etPhone = (EditText) findViewById(R.id.etPhone);
         btnSave = (Button) findViewById(R.id.btnSave);
 
@@ -50,9 +51,28 @@ public class SignUpActivity extends AppCompatActivity {
         boolean isk=true;
         String email=etEmail1.getText().toString();
         String passw1=etPassword1.getText().toString();
+        String passw2=etConfirmPassword.getText().toString();
         String fname=etFirstName.getText().toString();
         String lname=etLastName.getText().toString();
         String phone=etPhone.getText().toString();
+        boolean isok = false;
+        if (
+                email.length() < 4 || email.indexOf('@') < 0 || email.indexOf('.') < 0
+                ) {
+            etEmail1.setError("wrong email");
+            isok = false;
+        }
+        if (passw1.length()<8){
+            etPassword1.setError("Have to be at least 8 char");
+            isok = false;
+        }
+        if (passw1.length() == passw2.length()){
+            etConfirmPassword.setError("passwords have to be matched");
+            isok = false;
+        }
+        if (isok){
+            creatAcount(email,passw1);
+        }
     }
 
     private void creatAcount (String email , String passw)

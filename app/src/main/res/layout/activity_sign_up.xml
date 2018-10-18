@@ -22,7 +22,7 @@
         android:hint="First Name"
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="16dp" />
+        tools:layout_editor_absoluteY="6dp" />
 
     <EditText
         android:id="@+id/etLastName"
@@ -32,7 +32,7 @@
         android:hint="Last Name"
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="86dp" />
+        tools:layout_editor_absoluteY="70dp" />
 
     <EditText
         android:id="@+id/etEmail1"
@@ -42,7 +42,7 @@
         android:hint="Email"
         android:inputType="textEmailAddress"
         tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="164dp" />
+        tools:layout_editor_absoluteY="137dp" />
 
     <EditText
         android:id="@+id/etPassword1"
@@ -52,7 +52,7 @@
         android:hint="Passwod"
         android:inputType="textPassword"
         tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="247dp" />
+        tools:layout_editor_absoluteY="206dp" />
 
     <EditText
         android:id="@+id/etPhone"
@@ -60,8 +60,18 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Phone"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="84dp"
-        tools:layout_editor_absoluteY="327dp" />
+        android:inputType="phone"
+        tools:layout_editor_absoluteX="85dp"
+        tools:layout_editor_absoluteY="331dp" />
+
+    <EditText
+        android:id="@+id/etConfirmPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="ConfirmPassword"
+        android:inputType="textPassword"
+        tools:layout_editor_absoluteX="85dp"
+        tools:layout_editor_absoluteY="267dp" />
 
 </android.support.constraint.ConstraintLayout>

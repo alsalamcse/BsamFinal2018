@@ -1,5 +1,6 @@
 package com.sholy.bsam.bsamtaskmangr2018;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,12 +25,16 @@ public class LogInMainActivity extends AppCompatActivity {
         btnSignUP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),SignUpActivity.class);
+                startActivity(intent);
 
             }
         });
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),MainTabsActivity.class);
+                startActivity(intent);
 
             }
         });
