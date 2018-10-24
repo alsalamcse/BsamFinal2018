@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:text="Save"
         tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="418dp" />
+        tools:layout_editor_absoluteY="418dp"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/etFirstName"
@@ -22,7 +23,8 @@
         android:hint="First Name"
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="6dp" />
+        tools:layout_editor_absoluteY="6dp"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/etLastName"
@@ -32,7 +34,8 @@
         android:hint="Last Name"
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="70dp" />
+        tools:layout_editor_absoluteY="70dp"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/etEmail1"
@@ -42,7 +45,8 @@
         android:hint="Email"
         android:inputType="textEmailAddress"
         tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="137dp" />
+        tools:layout_editor_absoluteY="137dp"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/etPassword1"
@@ -52,7 +56,8 @@
         android:hint="Passwod"
         android:inputType="textPassword"
         tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="206dp" />
+        tools:layout_editor_absoluteY="206dp"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/etPhone"
@@ -62,7 +67,8 @@
         android:hint="Phone"
         android:inputType="phone"
         tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="331dp" />
+        tools:layout_editor_absoluteY="331dp"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/etConfirmPassword"
@@ -72,6 +78,7 @@
         android:hint="ConfirmPassword"
         android:inputType="textPassword"
         tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="267dp" />
+        tools:layout_editor_absoluteY="267dp"
+        tools:ignore="MissingConstraints" />
 
 </android.support.constraint.ConstraintLayout>
