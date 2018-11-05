@@ -1,5 +1,6 @@
 package com.sholy.bsam.bsamtaskmangr2018;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -41,10 +42,11 @@ public class SignUpActivity extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                dataHandler();
+
 
             }
         });
-        dataHandler();
     }
 
     private void dataHandler() {
@@ -57,7 +59,7 @@ public class SignUpActivity extends AppCompatActivity {
         String phone=etPhone.getText().toString();
         boolean isok = false;
         if (
-                email.length() < 4 || email.indexOf('@') < 0 || email.indexOf('.') < 0
+                email.length() > 4 || email.indexOf('@') < 0 || email.indexOf('.') < 0
                 ) {
             etEmail1.setError("wrong email");
             isok = false;
@@ -66,7 +68,7 @@ public class SignUpActivity extends AppCompatActivity {
             etPassword1.setError("Have to be at least 8 char");
             isok = false;
         }
-        if (passw1.length() == passw2.length()){
+        if (!passw1.equals(passw2)){
             etConfirmPassword.setError("passwords have to be matched");
             isok = false;
         }

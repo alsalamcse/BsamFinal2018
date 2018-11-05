@@ -11,20 +11,21 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
     }
+
     @Override
-    protected void onRestart() {
-        MyThread myThread=new MyThread();
+    protected void onResume() {
+        MyThread myThread = new MyThread();
         myThread.start();
-        super.onRestart();
+        super.onResume();
     }
 
-    public class MyThread extends Thread
-    {
+
+    public class MyThread extends Thread {
         @Override
         public void run() {
             try {
-                sleep(1000);
-                Intent intent=new Intent(getApplicationContext(),MainTabsActivity.class);
+                sleep(2000);
+                Intent intent = new Intent(getApplicationContext(), LogInMainActivity.class);
                 startActivity(intent);
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -32,3 +33,4 @@ public class SplashActivity extends AppCompatActivity {
         }
     }
 }
+
