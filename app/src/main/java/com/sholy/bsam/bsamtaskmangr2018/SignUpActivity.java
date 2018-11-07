@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class SignUpActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private FirebaseUser firebaseUser;
-    private EditText etFirstName,etLastName,etEmail1,etPassword1,etPhone,etConfirmPassword;
+    private EditText etFirstName,etLastName,etEmail,etPassword1,etPhone,etConfirmPassword;
     private Button btnSave;
 
 
@@ -29,7 +29,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         etFirstName = (EditText) findViewById(R.id.etFirstName);
         etLastName = (EditText) findViewById(R.id.etLastName);
-        etEmail1 = (EditText) findViewById(R.id.etEmail);
+        etEmail = (EditText) findViewById(R.id.etEmail);
         etPassword1 = (EditText) findViewById(R.id.etPassword1);
         etConfirmPassword = (EditText) findViewById(R.id.etConfirmPassword);
         etPhone = (EditText) findViewById(R.id.etPhone);
@@ -51,17 +51,17 @@ public class SignUpActivity extends AppCompatActivity {
 
     private void dataHandler() {
         boolean isk=true;
-        String email=etEmail1.getText().toString();
+        String email=etEmail.getText().toString();
         String passw1=etPassword1.getText().toString();
         String passw2=etConfirmPassword.getText().toString();
         String fname=etFirstName.getText().toString();
         String lname=etLastName.getText().toString();
         String phone=etPhone.getText().toString();
-        boolean isok = false;
+        boolean isok = true;
         if (
-                email.length() > 4 || email.indexOf('@') < 0 || email.indexOf('.') < 0
+                email.length() < 4 || email.indexOf('@') < 0 || email.indexOf('.') < 0
                 ) {
-            etEmail1.setError("wrong email");
+            etEmail.setError("wrong email");
             isok = false;
         }
         if (passw1.length()<8){
@@ -91,6 +91,13 @@ public class SignUpActivity extends AppCompatActivity {
                     Toast.makeText(SignUpActivity.this,"Authentication Failed"+task.getException().toString(),Toast.LENGTH_SHORT).show();
                     task.getException().printStackTrace();
                 }
+            }
+        });
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SignUpActivity.this,LogInMainActivity.class);
+                startActivity(intent);
             }
         });
 
