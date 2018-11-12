@@ -7,8 +7,11 @@ public class MyTask {
     private String Title;
     private String Text;
     private int Important;
+    private int Nesesary;
     private Date CreatedAt;
     private Date DueDate;
+    private String Owner;
+
 
     public MyTask() {
     }
@@ -45,6 +48,10 @@ public class MyTask {
         Important = important;
     }
 
+    public void setNesesary(int nesesary){Nesesary = nesesary;}
+
+    public int getNesesary(){return Nesesary;}
+
     public Date getCreatedAt() {
         return CreatedAt;
     }
@@ -61,6 +68,7 @@ public class MyTask {
         DueDate = dueDate;
     }
 
+
     @Override
     public String toString() {
         return "MyTask{" +
@@ -72,4 +80,9 @@ public class MyTask {
                 ", DueDate=" + DueDate +
                 '}';
     }
+    public void setOwner(String Owner)
+    {
+        this.Owner=Owner;
+    }
 }
+

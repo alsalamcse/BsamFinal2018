@@ -8,11 +8,17 @@ import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.sholy.bsam.bsamtaskmangr2018.TaskFragment.Data.MyTask;
+
+import java.util.Date;
+
 public class AddTaskActivity extends AppCompatActivity {
     private EditText etTitle,etText,etDueDate,etDatePicker;
     private Button btnSave,btnDatePicker;
     private TextView tvImportant,tvNecesary;
     private SeekBar skbrNecesary,skbrImportant;
+    private String owner;
 
 
     @Override
@@ -46,9 +52,31 @@ public class AddTaskActivity extends AppCompatActivity {
         boolean isk=true;
         String title=etTitle.getText().toString();
         String text=etText.getText().toString();
-        String DueDate=etDueDate.getText().toString();
+        String dueDate=etDueDate.getText().toString();
         int imp=skbrImportant.getProgress();
         int nec=skbrNecesary.getProgress();
+        boolean isok=true;
+        if (title.length()<4){
+            etTitle.setError("title can not be empty");
+            isok=false;
+        }
+        if (text.length()<4){
+            etText.setError("text can not be empty");
+            isok=false;
+        }
+        if (isok) {
+            MyTask task=new MyTask();
+            task.setCreatedAt(new Date());
+            task.setDueDate(new Date(dueDate));
+            task.setText(text);
+            task.setText(title);
+            task.setTitle(title);
+            task.setImportant(imp);
+            task.setNesesary(nec);
+
+            FirebaseAuth auth=FirebaseAuth.getInstance();
+            task.setOwner(auth.getCurrentUser().getEmail());
+        }
 
     }
 }
