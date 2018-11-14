@@ -1,5 +1,6 @@
 package com.sholy.bsam.bsamtaskmangr2018;
 
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -7,8 +8,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.sholy.bsam.bsamtaskmangr2018.TaskFragment.Data.MyTask;
 
 import java.util.Date;
@@ -65,7 +71,7 @@ public class AddTaskActivity extends AppCompatActivity {
             isok=false;
         }
         if (isok) {
-            MyTask task=new MyTask();
+            MyTask task = new MyTask();
             task.setCreatedAt(new Date());
             task.setDueDate(new Date(dueDate));
             task.setText(text);
@@ -74,8 +80,41 @@ public class AddTaskActivity extends AppCompatActivity {
             task.setImportant(imp);
             task.setNesesary(nec);
 
-            FirebaseAuth auth=FirebaseAuth.getInstance();
+            FirebaseAuth auth = FirebaseAuth.getInstance();
             task.setOwner(auth.getCurrentUser().getEmail());
+
+            DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+
+            String key = reference.child("MyTasks").push().getKey();
+            task.setKey(key);
+
+            reference.child("MyTasks").child(key).setValue(task).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(AddTaskActivity.this, "Add Successful", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(AddTaskActivity.this, "Add Failed", Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
 
     }
