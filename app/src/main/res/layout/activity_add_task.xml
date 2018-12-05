@@ -90,7 +90,7 @@
     <SeekBar
         android:id="@+id/skbrImportant"
         style="@style/Widget.AppCompat.SeekBar.Discrete"
-        android:layout_width="wrap_content"
+        android:layout_width="353dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/etTitle"
@@ -104,7 +104,7 @@
     <SeekBar
         android:id="@+id/skbrNecesary"
         style="@style/Widget.AppCompat.SeekBar.Discrete"
-        android:layout_width="wrap_content"
+        android:layout_width="353dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/etTitle"
